@@ -1,0 +1,140 @@
+{
+	"info": {
+		"_postman_id": "766366d3-ca66-4160-8eec-61ea9841cee8",
+		"name": "Prova",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39316529"
+	},
+	"item": [
+		{
+			"name": "GET",
+			"item": [
+				{
+					"name": "Teste de GET com Limite de Imagens (Teste Positivo)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Verifica se a resposta do get é um 200\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"// Verifica se o corpo da resposta é um array\r",
+									"pm.test(\"Response is an array\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.be.an(\"array\");\r",
+									"});\r",
+									"// Verifica se o tamanho do array é igual ao limite esperado (10)\r",
+									"pm.test(\"Array respects the limit parameter\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.length).to.equal(10, \"The array does not match the expected limit of 5\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.thecatapi.com/v1/images/search?limit=10",
+							"protocol": "https",
+							"host": [
+								"api",
+								"thecatapi",
+								"com"
+							],
+							"path": [
+								"v1",
+								"images",
+								"search"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "10",
+									"description": "Define o número de imagens a serem retornadas."
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "POST",
+			"item": [
+				{
+					"name": "Teste com Chave Inválida para Favoritar (Negativo)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Unoutorized expeted\r",
+									"pm.test(\"Status code is 401\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});\r",
+									"\r",
+									"// inclusive minha chave correta é: live_HqRKSJwreWP5uWJC2YiQYlXjjXZnmwjdjdUZg5bon2B32P0qVobZXUVMhUhkdTgp\r",
+									"\r",
+									"// Verifica se a mensagem de erro está correta (texto puro)\r",
+									"pm.test(\"Error message contains AUTHENTICATION_ERROR\", function () {\r",
+									"    var responseText = pm.response.text(); // Obtém o texto puro da resposta\r",
+									"    pm.expect(responseText).to.include(\"AUTHENTICATION_ERROR\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": "Indica que o corpo da requisição está em JSON.\n",
+								"type": "text"
+							},
+							{
+								"key": "x-api-key",
+								"value": "CHAVE_ERRADA",
+								"description": "chave de api",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"image_id\": \"invalid_image_id\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://api.thecatapi.com/v1/favourites",
+							"protocol": "https",
+							"host": [
+								"api",
+								"thecatapi",
+								"com"
+							],
+							"path": [
+								"v1",
+								"favourites"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
