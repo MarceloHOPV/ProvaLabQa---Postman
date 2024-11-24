@@ -4,7 +4,7 @@ Repositório para armazenar os testes postman da Prova de QA
 # Prova - Teste de API com Postman
 
 ## Descrição do Projeto
-Este projeto foi desenvolvido como parte da prova da disciplina **S206 - Qualidade de Software**. Ele utiliza o Postman para testar a **The Cat API** com dois cenários diferentes de teste. Um teste positivo e um teste negativo foram implementados, seguindo as especificações fornecidas.
+Este projeto foi desenvolvido como parte da prova da disciplina **S206 - Qualidade de Software**. Ele utiliza o Postman para testar a **The Cat API** com três cenários diferentes de teste. Dois testes positivos e um teste negativo foram implementados, seguindo as especificações fornecidas.
 
 ## Estrutura do Projeto
 - **Teste Positivo**: 
@@ -24,11 +24,12 @@ Este projeto foi desenvolvido como parte da prova da disciplina **S206 - Qualida
   - **Postman**
   - **Newman** (para exportar o relatório de testes)
 - A API utilizada requer uma chave de autenticação (API Key).
-
+  - Se necessário para testar outras partes da API usar a chave: live_HqRKSJwreWP5uWJC2YiQYlXjjXZnmwjdjdUZg5bon2B32P0qVobZXUVMhUhkdTgp
+  - 
 ## Como Executar os Testes
 1. **Configuração do Ambiente**:
    - Baixe o [Postman](https://www.postman.com/downloads/).
-   - Obtenha uma API Key válida em [The Cat API](https://thecatapi.com/).
+   - Obtenha uma API Key válida em [The Cat API](https://thecatapi.com/) ou use a dada acima.
 
 2. **Importar Coleção no Postman**:
    - Faça o download do arquivo de coleção.
