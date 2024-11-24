@@ -25,7 +25,7 @@ Este projeto foi desenvolvido como parte da prova da disciplina **S206 - Qualida
   - **Newman** (para exportar o relatório de testes)
 - A API utilizada requer uma chave de autenticação (API Key).
   - Se necessário para testar outras partes da API usar a chave: live_HqRKSJwreWP5uWJC2YiQYlXjjXZnmwjdjdUZg5bon2B32P0qVobZXUVMhUhkdTgp
-  - 
+    
 ## Como Executar os Testes
 1. **Configuração do Ambiente**:
    - Baixe o [Postman](https://www.postman.com/downloads/).
