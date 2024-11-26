@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "766366d3-ca66-4160-8eec-61ea9841cee8",
+		"_postman_id": "92f5eaaa-0f72-4af7-aebd-fb9c43b72c1b",
 		"name": "Prova",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "39316529"
+		"_exporter_id": "39345677"
 	},
 	"item": [
 		{
@@ -57,6 +57,62 @@
 									"key": "limit",
 									"value": "10",
 									"description": "Define o número de imagens a serem retornadas."
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Busca por raça",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Body matches string\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Bambino\");",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "live_HqRKSJwreWP5uWJC2YiQYlXjjXZnmwjdjdUZg5bon2B32P0qVobZXUVMhUhkdTgp",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://api.thecatapi.com/v1/images/search?breed_ids=bamb",
+							"protocol": "https",
+							"host": [
+								"api",
+								"thecatapi",
+								"com"
+							],
+							"path": [
+								"v1",
+								"images",
+								"search"
+							],
+							"query": [
+								{
+									"key": "breed_ids",
+									"value": "bamb"
+								},
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
 								}
 							]
 						}
